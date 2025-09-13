@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:27:12 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 11:29:42 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:18:32 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	print_help(void)
 	fprintf(stdout, "[OPTION...] HOST ...\n");
 	fprintf(stdout, "Send ICMP ECHO_REQUEST packets to network hosts.\n\n");
 	fprintf(stdout, " Options:\n");
-	fprintf(stdout, "  -?, --help     give this help list\n");
-	fprintf(stdout, "      --usage    give a short usage message\n");
-	fprintf(stdout, "  -V, --version  print program version\n");
+	fprintf(stdout, "  -?, --help     %s\n", get_opt_desc('?'));
+	fprintf(stdout, "      --usage    %s\n", get_opt_desc(1));
+	fprintf(stdout, "  -V, --version  %s\n", get_opt_desc('V'));
+	fprintf(stdout, "  -v, --verbose  %s\n", get_opt_desc('v'));
 }
