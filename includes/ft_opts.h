@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:53:17 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 12:19:52 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:48:40 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,17 @@ typedef struct s_ping_opts
 	int					flags; // Bitmask for flags
 }	t_ping_opts;
 
+typedef enum e_ping_flags
+{
+	FLAG_NONE		= 0,
+	FLAG_VERBOSE	= 1 << 0, // -v : Verbose output
+}	t_ping_flags;
+
 /* ══════════════════════════════════════════════════════════════════════════ */
 /*                        ⚙️  OPTIONS DEFINITIONS                           */
 /* ══════════════════════════════════════════════════════════════════════════ */
 
 # define SHORT_OPTS		":?Vv"
-# define FLAG_VERBOSE	0x01
 
 /* ══════════════════════════════════════════════════════════════════════════ */
 /*                        ⚙️  OPTIONS CONFIG PROTOTYPES                      */
