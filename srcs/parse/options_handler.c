@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:46:26 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 12:47:00 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:53:30 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
  */
 static int	handle_information_options(int opt, t_ping_opts *opts)
 {
-	if (opt == '?' || opt == 'H')
+	if (opt == 'H')
+		opts->code = PING_OPTS_HELP;
+	else if (opt == '?' && optopt == '?')
 		opts->code = PING_OPTS_HELP;
 	else if (opt == 1)
 		opts->code = PING_OPTS_USAGE;
@@ -78,6 +80,5 @@ int	handle_option(int opt, t_ping_opts *opts)
 		return (0);
 	if (handle_flag_options(opt, opts) == 0)
 		return (0);
-	handle_error_options(opt, opts);
-	return (-1);
+	return (handle_error_options(opt, opts));
 }
