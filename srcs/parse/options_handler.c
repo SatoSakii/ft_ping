@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:46:26 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 12:17:41 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:36:00 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ static void	handle_error_options(int opt, t_ping_opts *opts)
 		opts->code = PING_OPTS_INVALID;
 }
 
+/**
+ * @brief Handle flag options and update the options structure.
+ * @param opt The option character to handle.
+ * @param opts Pointer to the options structure.
+ * @return 0 on success, -1 on failure.
+ */
 static int	handle_flag_options(int opt, t_ping_opts *opts)
 {
 	if (opt == 'v')
