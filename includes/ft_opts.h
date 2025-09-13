@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:53:17 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 12:48:40 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:54:18 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef enum e_ping_flags
 /*                        ⚙️  OPTIONS DEFINITIONS                           */
 /* ══════════════════════════════════════════════════════════════════════════ */
 
-# define SHORT_OPTS		":?Vv"
+# define SHORT_OPTS		":Vv"
 
 /* ══════════════════════════════════════════════════════════════════════════ */
 /*                        ⚙️  OPTIONS CONFIG PROTOTYPES                      */
