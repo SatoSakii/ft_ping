@@ -8,6 +8,7 @@ SRCS_DIR	=	srcs
 INC_DIR		=	includes
 
 SRCS		:=	main.c \
+				core/handler.c \
 				print/print_information.c \
 				print/print_error.c \
 				parse/options_config.c \
