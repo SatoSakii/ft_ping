@@ -8,9 +8,13 @@ SRCS_DIR	=	srcs
 INC_DIR		=	includes
 
 SRCS		:=	main.c \
-				parse.c \
 				print/print_information.c \
-				print/print_error.c
+				print/print_error.c \
+				parse/options_config.c \
+				parse/options_core.c \
+				parse/options_handler.c \
+				parse/options_parser.c
+
 SRCS		:=	$(addprefix $(SRCS_DIR)/, $(SRCS))
 OBJS		=	$(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
 
