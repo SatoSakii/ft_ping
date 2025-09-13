@@ -13,7 +13,9 @@ SRCS		:=	main.c \
 				parse/options_config.c \
 				parse/options_core.c \
 				parse/options_handler.c \
-				parse/options_parser.c
+				parse/options_parser.c \
+				network/dns_resolver.c \
+				network/network_utils.c
 
 SRCS		:=	$(addprefix $(SRCS_DIR)/, $(SRCS))
 OBJS		=	$(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
