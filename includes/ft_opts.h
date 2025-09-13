@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:53:17 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 13:54:18 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 19:07:00 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ typedef enum e_ping_opts_code
 	PING_OPTS_MISSING_ARG, // Missing argument
 	PING_OPTS_INVALID, // Invalid option (short option)
 	PING_OPTS_UNRECOGNIZED, // Unrecognized option (long option)
-	PING_OPTS_ERROR, // Generic error
 }	t_ping_opts_code;
 
 typedef struct s_ping_opts
 {
 	t_ping_opts_code	code; // Option code
 	const char			*host; // Host to ping
-	int					flags; // Bitmask for flags
+	char				resolved_ip[INET_ADDRSTRLEN]; // Resolved IP address
+	unsigned int		flags; // Bitmask for flags
 }	t_ping_opts;
 
 typedef enum e_ping_flags

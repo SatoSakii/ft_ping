@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:52:26 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 11:25:49 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 19:40:21 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # include <stdlib.h>
 # include <getopt.h>
 # include <string.h>
+# include <arpa/inet.h>
+# include <netinet/in.h>
+# include <sys/socket.h>
+# include <netdb.h>
 # include "ft_opts.h"
 
 /* ══════════════════════════════════════════════════════════════════════════ */
@@ -32,18 +36,32 @@
 # define PROG_VERSION	"1.0.0"
 
 /* ══════════════════════════════════════════════════════════════════════════ */
+/*                          CORE FUNCTION PROTOTYPES                          */
+/* ══════════════════════════════════════════════════════════════════════════ */
+
+void	handle_parsing_errors(t_ping_opts *opts, char **argv);
+void	handle_information_options(t_ping_opts *opts);
+int		handle_parsed_options(t_ping_opts *opts);
+
+/* ══════════════════════════════════════════════════════════════════════════ */
 /*                        🖨️  PRINT FUNCTION PROTOTYPES                      */
 /* ══════════════════════════════════════════════════════════════════════════ */
 
-/* Information print functions */
 void	print_version(void);
 void	print_usage(void);
 void	print_help(void);
 
-/* Error print functions */
 void	print_invalid(char opt);
 void	print_missing_arg(char opt);
-void	print_error(void);
+void	print_missing_host(void);
+void	print_unknown_host(void);
 void	print_unrecognized(const char *opt);
+
+/* ══════════════════════════════════════════════════════════════════════════ */
+/*                       🛠️  NETWORK FUNCTION PROTOTYPES                      */
+/* ══════════════════════════════════════════════════════════════════════════ */
+
+int		is_valid_ipv4(const char *ip);
+int		resolve_hostname(const char *hostname, char *resolved_ip);
 
 #endif
