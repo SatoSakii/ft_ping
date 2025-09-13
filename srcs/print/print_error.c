@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:27:36 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 11:29:29 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 16:34:22 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,19 @@ void	print_missing_arg(char opt)
 }
 
 /**
- * @brief Print a generic error message for missing host operand.
+ * @brief Print an error message for missing host operand.
  */
-void	print_error(void)
+void	print_missing_host(void)
 {
 	fprintf(stderr, "%s: missing host operand\n", PROG_NAME);
 	fprintf(stderr, "Try '%s --help' or '%s --usage' for more information.\n",
 		PROG_NAME, PROG_NAME);
+}
+
+/**
+ * @brief Print an error message for an unknown host.
+ */
+void	print_unknown_host(void)
+{
+	fprintf(stderr, "%s: unknown host\n", PROG_NAME);
 }
