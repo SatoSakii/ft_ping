@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:53:17 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 19:07:00 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:32:48 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef enum e_ping_opts_code
 	PING_OPTS_MISSING_ARG, // Missing argument
 	PING_OPTS_INVALID, // Invalid option (short option)
 	PING_OPTS_UNRECOGNIZED, // Unrecognized option (long option)
+	PING_OPTS_WRONG_SIZE, // Wrong packet size
+	PING_OPTS_INVALID_VALUE, // Invalid value for option provided
 }	t_ping_opts_code;
 
 typedef struct s_ping_opts
@@ -30,19 +32,24 @@ typedef struct s_ping_opts
 	const char			*host; // Host to ping
 	char				resolved_ip[INET_ADDRSTRLEN]; // Resolved IP address
 	unsigned int		flags; // Bitmask for flags
+	unsigned int		packet_size; // Size of the ICMP packet
 }	t_ping_opts;
 
 typedef enum e_ping_flags
 {
 	FLAG_NONE		= 0,
 	FLAG_VERBOSE	= 1 << 0, // -v : Verbose output
+	FLAG_QUIET		= 1 << 1, // -q : Quiet output
+	FLAG_SIZE		= 1 << 2, // -s : Specify packet size
 }	t_ping_flags;
 
 /* ══════════════════════════════════════════════════════════════════════════ */
 /*                        ⚙️  OPTIONS DEFINITIONS                           */
 /* ══════════════════════════════════════════════════════════════════════════ */
 
-# define SHORT_OPTS		":Vv"
+# define SHORT_OPTS				":Vvqs:"
+# define MAX_PACKET_SIZE		65399
+# define DEFAULT_PACKET_SIZE	56
 
 /* ══════════════════════════════════════════════════════════════════════════ */
 /*                        ⚙️  OPTIONS CONFIG PROTOTYPES                      */
