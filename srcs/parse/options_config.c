@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 12:01:04 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 12:18:10 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 20:23:11 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ const struct option	*get_long_opts(void)
 	{"usage", no_argument, 0, 1},
 	{"version", no_argument, 0, 'V'},
 	{"verbose", no_argument, 0, 'v'},
+	{"quiet", no_argument, 0, 'q'},
+	{"size", required_argument, 0, 's'},
 	{0, 0, 0, 0}
 	};
 
@@ -44,5 +46,9 @@ const char	*get_opt_desc(char opt)
 		return ("print program version");
 	else if (opt == 'v')
 		return ("verbose output");
+	else if (opt == 'q')
+		return ("quiet output");
+	else if (opt == 's')
+		return ("send NUMBER data octets");
 	return (NULL);
 }
