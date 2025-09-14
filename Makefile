@@ -11,6 +11,7 @@ SRCS		:=	main.c \
 				core/handler.c \
 				print/print_information.c \
 				print/print_error.c \
+				print/print_option.c \
 				parse/options_config.c \
 				parse/options_core.c \
 				parse/options_handler.c \
