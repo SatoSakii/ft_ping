@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 19:28:21 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 19:41:47 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:51:48 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,17 @@ void	handle_parsing_errors(t_ping_opts *opts, char **argv)
 		print_missing_arg(optopt);
 	else if (opts->code == PING_OPTS_UNRECOGNIZED)
 		print_unrecognized(argv[optind - 1]);
+	else if (opts->code == PING_OPTS_WRONG_SIZE)
+		print_option_value_big(optarg);
+	else if (opts->code == PING_OPTS_INVALID_VALUE)
+		print_option_value_invalid(optarg, optind);
 }
 
 /**
  * @brief Handle information options like help, version, and usage.
  * @param opts Pointer to the options structure.
  */
-void	handle_information_options(t_ping_opts *opts)
+void	handle_parsing_informations(t_ping_opts *opts)
 {
 	if (opts->code == PING_OPTS_VERSION)
 		print_version();
@@ -62,7 +66,10 @@ int	handle_parsed_options(t_ping_opts *opts)
 		}
 		printf("Debug: Resolved IP: %s\n", opts->resolved_ip);
 		printf("Debug: Hostname: %s\n", opts->host);
-		printf("Debug: Verbose mode: %s\n", opts->flags & FLAG_VERBOSE ? "ON" : "OFF");
+		printf("Debug: Verbose mode: %u\n", (opts->flags & FLAG_VERBOSE) == 1);
+		printf("Debug: Quiet mode: %u\n", (opts->flags & FLAG_QUIET) == 2);
+		printf("Debug: Size mode: %u | Size = %d\n",
+			(opts->flags & FLAG_SIZE) == 4, opts->packet_size);
 	}
 	return (0);
 }
