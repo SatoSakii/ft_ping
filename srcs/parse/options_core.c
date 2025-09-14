@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:44:56 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 12:17:56 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/13 21:02:14 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	options_clear(t_ping_opts *opts)
 	opts->code = PING_OPTS_NONE;
 	opts->host = NULL;
 	opts->flags = 0;
+	opts->packet_size = DEFAULT_PACKET_SIZE;
 }
