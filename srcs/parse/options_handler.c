@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:46:26 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 12:53:30 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/14 15:12:37 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,9 @@ static int	handle_error_options(int opt, t_ping_opts *opts)
 	else if (opt == ':')
 		opts->code = PING_OPTS_MISSING_ARG;
 	else
-		opts->code = PING_OPTS_INVALID;
-	return (-1);
-}
-
-/**
- * @brief Handle flag options and update the options structure.
- * @param opt The option character to handle.
- * @param opts Pointer to the options structure.
- * @return 0 on success, -1 on failure.
- */
-static int	handle_flag_options(int opt, t_ping_opts *opts)
-{
-	if (opt == 'v')
 	{
-		opts->flags |= FLAG_VERBOSE;
-		return (0);
+		if (opts->code == PING_OPTS_NONE)
+			opts->code = PING_OPTS_INVALID;
 	}
 	return (-1);
 }
