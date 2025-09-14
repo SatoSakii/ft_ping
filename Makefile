@@ -14,6 +14,7 @@ SRCS		:=	main.c \
 				print/print_option.c \
 				parse/options_config.c \
 				parse/options_core.c \
+				parse/options_flags.c \
 				parse/options_handler.c \
 				parse/options_parser.c \
 				network/dns_resolver.c \
