@@ -6,7 +6,7 @@
 /*   By: albernar <albernar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:52:26 by albernar          #+#    #+#             */
-/*   Updated: 2025/09/13 19:40:21 by albernar         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:43:36 by albernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 /* ══════════════════════════════════════════════════════════════════════════ */
 
 void	handle_parsing_errors(t_ping_opts *opts, char **argv);
-void	handle_information_options(t_ping_opts *opts);
+void	handle_parsing_informations(t_ping_opts *opts);
 int		handle_parsed_options(t_ping_opts *opts);
 
 /* ══════════════════════════════════════════════════════════════════════════ */
@@ -56,6 +56,9 @@ void	print_missing_arg(char opt);
 void	print_missing_host(void);
 void	print_unknown_host(void);
 void	print_unrecognized(const char *opt);
+
+void	print_option_value_big(const char *opt);
+void	print_option_value_invalid(const char *opt, const int optind);
 
 /* ══════════════════════════════════════════════════════════════════════════ */
 /*                       🛠️  NETWORK FUNCTION PROTOTYPES                      */
